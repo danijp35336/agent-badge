@@ -632,8 +632,30 @@
   },
   "bscGasPriceWei": "50000000",
   "bscGasPriceGwei": 0.05,
-  "deployFeeBNBAtCurrentGasPrice": 0.00006639275,
+  "deployFeeBNBAtCurrentGasPrice": 6.639275e-05,
   "deployerBalanceBNB": 0.00068435,
   "fitsBalance": true,
-  "generated": "2026-11-19T23:05+07:00"
+  "generated": "2026-11-19T23:05+07:00",
+  "mainnetDeployment": {
+    "address": "0xd4F4Da9a2e2367a7C934257e9c234d1E94d01def",
+    "txHash": "0x735b0ea09d3d946d6063407c3769b8d8aa13c674fbce69b4a21de706eba81b0f",
+    "blockNumber": 134544670,
+    "deployer": "0x2D73AF41ac183C53a27fe284b65e73ee698bbFE0",
+    "factory": "0x4e59b44847b379578588920cA78FbF26c0B4956C",
+    "method": "CREATE2 via Deterministic Deployment Proxy, salt 0x00..00 (raw calldata, no ABI selector)",
+    "gasUsed": 1330516,
+    "gasPriceGwei": 0.133711627,
+    "feeBNB": 0.000177905459109532,
+    "bscscan": "https://bscscan.com/address/0xd4F4Da9a2e2367a7C934257e9c234d1E94d01def",
+    "txBscscan": "https://bscscan.com/tx/0x735b0ea09d3d946d6063407c3769b8d8aa13c674fbce69b4a21de706eba81b0f",
+    "deployerBalanceAfterBNB": 0.000488750741750513,
+    "verifiedOnChain": "2026-11-20 00:38 WIB: runtime 5541 bytes, name AgentBadge, symbol ABADGE, agentId()=0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F, Dani holds 1 Agent ID (danijp), hasBadge=false"
+  },
+  "failedFirstAttempt": {
+    "txHash": "0x54e2ad9bff16f827da14733a67bd7bc693c5498b7bb2daf78b3153f6d14b98d5",
+    "blockNumber": 134544257,
+    "gasUsed": 266500,
+    "feeBNB": 1.7694414075e-05,
+    "reason": "ABI-encoded deploy(bytes,bytes32) sent to raw CREATE2 proxy which expects raw salt+initCode; deployed an empty contract, not AgentBadge"
+  }
 }
