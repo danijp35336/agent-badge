@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgentBadge — free badge for Agent ID holders</title>
+<meta name="description" content="AgentBadge: a free, soulbound on-chain badge and daily check-in streak for Agent ID holders. No fee, no promises — just a badge.">
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: system-ui, -apple-system, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.55; }
+  h1 { font-size: 1.8rem; margin-bottom: 0; }
+  .sub { color: #888; margin-top: .2rem; }
+  .card { border: 1px solid #8884; border-radius: 12px; padding: 1rem 1.2rem; margin: 1rem 0; }
+  button { font-size: 1rem; padding: .6rem 1.2rem; border-radius: 8px; border: 1px solid #888; background: #2f7df6; color: #fff; cursor: pointer; margin-right: .5rem; }
+  button:disabled { opacity: .45; cursor: not-allowed; }
+  button.secondary { background: transparent; color: inherit; }
+  .tier { font-weight: 700; }
+  .tier.Gold { color: #b8860b; } .tier.Silver { color: #708090; } .tier.Bronze { color: #a05a2c; }
+  table { border-collapse: collapse; width: 100%; }
+  td, th { border-bottom: 1px solid #8883; padding: .4rem .2rem; text-align: left; }
+  code { font-size: .9em; }
+  #status { white-space: pre-wrap; word-break: break-word; font-size: .9rem; }
+  .warn { background: #fff3cd33; border-color: #b8860b66; }
+</style>
+</head>
+<body>
+<h1>🏅 AgentBadge</h1>
+<p class="sub">A free, soulbound on-chain badge + daily check-in streak for Agent ID holders.</p>
+
+<div class="card warn" id="deployNotice" hidden>
+  The AgentBadge contract is <strong>not deployed yet</strong>. Claiming and check-in will be enabled once it is live on BNB Chain mainnet. Holder status below is already live.
+</div>
+
+<div class="card">
+  <h2>Your Agent ID</h2>
+  <p id="walletLine">Wallet not connected.</p>
+  <p id="holderLine">—</p>
+  <button id="connectBtn">Connect wallet</button>
+</div>
+
+<div class="card">
+  <h2>Your badge</h2>
+  <p>Streak: <strong id="streak">—</strong> &nbsp; Tier: <span class="tier" id="tier">—</span></p>
+  <p id="badgeLine">—</p>
+  <button id="claimBtn" disabled>Claim free badge</button>
+  <button id="checkinBtn" disabled>Check in today</button>
+  <p id="status"></p>
+</div>
+
+<div class="card">
+  <h2>Leaderboard — top streaks</h2>
+  <p class="sub">Aggregated from on-chain <code>CheckedIn</code> events. Handles resolved via the Agent ID contract.</p>
+  <table><thead><tr><th>#</th><th>Holder</th><th>Streak</th><th>Tier</th></tr></thead>
+  <tbody id="board"><tr><td colspan="4">—</td></tr></tbody></table>
+</div>
+
+<div class="card">
+  <h2>How it works</h2>
+  <ul>
+    <li><strong>Free:</strong> claiming and checking in cost gas only. No fee, no token sale, no promises of returns.</li>
+    <li><strong>Gated:</strong> only addresses holding an Agent ID can claim. One badge per holder.</li>
+    <li><strong>Soulbound:</strong> badges cannot be transferred or sold.</li>
+    <li><strong>Streak:</strong> check in once per UTC day. Consecutive days grow your streak; a missed day resets it to 1. Bronze &lt; 7, Silver 7–29, Gold 30+.</li>
+    <li><strong>Privacy:</strong> this site talks only to your wallet and the public chain RPC. No accounts, no servers, no seed phrases — you only ever confirm your own Claim / Check-in transactions in your wallet.</li>
+  </ul>
+  <p>Contract: <a href="https://github.com/danijp35336/agent-badge">github.com/danijp35336/agent-badge</a> · Agent ID contract: <code>0x60B9…022F</code></p>
+</div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
